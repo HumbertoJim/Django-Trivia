@@ -1,0 +1,42 @@
+[
+    {
+        "model": "trivia.Question",
+        "pk": 1,
+        "fields": {
+            "sentence": "Who is the parent of Python?",
+            "topic": 1
+        }
+    },
+    {
+        "model": "trivia.Question",
+        "pk": 2,
+        "fields": {
+            "sentence": "Python was created in the year...",
+            "topic": 1
+        }
+    },
+    {
+        "model": "trivia.Question",
+        "pk": 3,
+        "fields": {
+            "sentence": "What of the following sentence is true about Python?",
+            "topic": 1
+        }
+    },
+    {
+        "model": "trivia.Question",
+        "pk": 4,
+        "fields": {
+            "sentence": "What of the following sentence is false about Python?",
+            "topic": 1
+        }
+    },
+    {
+        "model": "trivia.Question",
+        "pk": 5,
+        "fields": {
+            "sentence": "What is the result of the following code? <div class='code'>print(4%3*15/5)</div>",
+            "topic": 1
+        }
+    }
+]

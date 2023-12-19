@@ -22,7 +22,9 @@ from main.views import Home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
     path('trivia/', include('trivia.urls')),
+    
 
     path('home', Home.as_view(), name='home'),
     path('', RedirectView.as_view(url='/home'))

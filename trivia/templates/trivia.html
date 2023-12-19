@@ -3,5 +3,15 @@
 {% block title%}Trivia{%endblock%}
 
 {% block content %}
-Trivia
+<div class="container">
+    <div class="col-10 col-md-8 col-lg-6 mx-auto">
+        <h1>{{question.sentence}}</h1>
+        <hr>
+        <div class="list-group">
+            {% for answer in question.answers %}
+            <a class="list-group-item list-group-item-action answer" href="/trivia/question/{{trivia_question_id}}?answer={{answer.id}}">{{answer.sentence}}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {%endblock%}

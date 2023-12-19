@@ -1,0 +1,38 @@
+[
+    {
+        "model": "trivia.Answer",
+        "pk": 1,
+        "fields": {
+            "sentence": "Guido van Rossum",
+            "is_correct": true,
+            "question": 1
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 2,
+        "fields": {
+            "sentence": "Juan Guaido",
+            "is_correct": false,
+            "question": 1
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 3,
+        "fields": {
+            "sentence": "Anders Hejlsberg",
+            "is_correct": false,
+            "question": 1
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 4,
+        "fields": {
+            "sentence": "Dennis Ritchie",
+            "is_correct": false,
+            "question": 1
+        }
+    }
+]

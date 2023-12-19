@@ -1,0 +1,23 @@
+[
+    {
+        "model": "trivia.Topic",
+        "pk": 1,
+        "fields": {
+            "name": "Python"
+        }
+    },
+    {
+        "model": "trivia.Topic",
+        "pk": 2,
+        "fields": {
+            "name": "Universal History"
+        }
+    },
+    {
+        "model": "trivia.Topic",
+        "pk": 3,
+        "fields": {
+            "name": "Classical Music"
+        }
+    }
+]

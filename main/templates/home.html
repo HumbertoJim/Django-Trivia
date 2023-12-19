@@ -1,5 +1,27 @@
 {% extends 'base.html' %}
 
+{% block title %}Home{% endblock %}
+
 {% block content %}
-<h1>Home</h1>
+<div class="container">
+    <div class="col-10 col-md-8 col-lg-6 mx-auto">
+        <h1>Home</h1>
+        <hr>
+        
+        {% if trivia %}
+        <h4>Pending</h4>
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action" href="/trivia/{{trivia.id}}">Continue last trivia</a>
+        </div>
+        <br>
+        {% endif %}
+        
+        <h4>New trivia</h4>
+        <div class="list-group">
+
+            <a class="list-group-item list-group-item-action" href="/trivia/topics">Select topic</a>
+        </div>
+        
+    </div>
+</div>
 {%endblock%}

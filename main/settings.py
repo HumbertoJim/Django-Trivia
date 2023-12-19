@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'bootstrap5',
 
+    'accounts',
     'trivia',
 ]
 
@@ -119,9 +120,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static/'
+STATICFILES_DIRS = [
+    
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Authentication
+AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
+
+# User model
+AUTH_USER_MODEL = 'accounts.User'
+
+# Session time
+SESSION_EXPIRE_SECONDS = 3600
+SESSION_TIMEOUT_REDIRECT = '/accounts/login'
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True

@@ -3,7 +3,10 @@ from django.contrib import messages
 from django.views import View
 
 from trivia.models import Topic, Question, Answer, Trivia, TriviaQuestion
+from django.utils.safestring import mark_safe
+import markdown
 import random
+
 
 # Create your views here.
 class TopicsView(View):
@@ -32,10 +35,11 @@ class TriviaView(View):
         trivia = Trivia.objects.get(id=trivia_id)
         trivia_question = TriviaQuestion.objects.filter(trivia=trivia).filter(correct_answered=None).first()
         if trivia_question is not None:
+            sentence = markdown.markdown(trivia_question.question.sentence)
             context = {
                 'trivia_question_id': trivia_question.id,
                 'question': {
-                    'sentence': trivia_question.question.sentence,
+                    'sentence': mark_safe(sentence),
                     'answers': Answer.objects.filter(question=trivia_question.question).values('id', 'sentence')
                 }
             }

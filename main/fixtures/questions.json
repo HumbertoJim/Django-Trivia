@@ -3,7 +3,7 @@
         "model": "trivia.Question",
         "pk": 1,
         "fields": {
-            "sentence": "Who is the parent of Python?",
+            "sentence": "Who is the creator of Python?",
             "topic": 1
         }
     },
@@ -11,7 +11,7 @@
         "model": "trivia.Question",
         "pk": 2,
         "fields": {
-            "sentence": "Python was created in the year...",
+            "sentence": "In what year was the first public version of Python released?",
             "topic": 1
         }
     },
@@ -19,7 +19,7 @@
         "model": "trivia.Question",
         "pk": 3,
         "fields": {
-            "sentence": "What of the following sentence is true about Python?",
+            "sentence": "What is the \"print()\" function in Python used for?",
             "topic": 1
         }
     },
@@ -27,7 +27,7 @@
         "model": "trivia.Question",
         "pk": 4,
         "fields": {
-            "sentence": "What of the following sentence is false about Python?",
+            "sentence": "sentence\": \"What does the acronym \"PEP\" stand for in the context of Python?",
             "topic": 1
         }
     },
@@ -35,7 +35,47 @@
         "model": "trivia.Question",
         "pk": 5,
         "fields": {
-            "sentence": "What is the result of the following code? <div class='code'>print(4%3*15/5)</div>",
+            "sentence": "What is the difference between a list and a tuple in Python?",
+            "topic": 1
+        }
+    },
+    {
+        "model": "trivia.Question",
+        "pk": 6,
+        "fields": {
+            "sentence": "What is Object-Oriented Programming (OOP) and how is it implemented in Python?",
+            "topic": 1
+        }
+    },
+    {
+        "model": "trivia.Question",
+        "pk": 7,
+        "fields": {
+            "sentence": "What is the difference between \"==\" and \"is\" in Python?",
+            "topic": 1
+        }
+    },
+    {
+        "model": "trivia.Question",
+        "pk": 8,
+        "fields": {
+            "sentence": "What is a dictionary in Python and how is it declared?",
+            "topic": 1
+        }
+    },
+    {
+        "model": "trivia.Question",
+        "pk": 9,
+        "fields": {
+            "sentence": "What is a \"for\" loop and how is it used in Python?",
+            "topic": 1
+        }
+    },
+    {
+        "model": "trivia.Question",
+        "pk": 10,
+        "fields": {
+            "sentence": "What is the \"len()\" function in Python and what is it commonly used for?",
             "topic": 1
         }
     }

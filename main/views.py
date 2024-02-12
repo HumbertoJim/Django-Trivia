@@ -3,6 +3,7 @@ from django.views import View
 
 from trivia.models import Trivia
 
+
 class Home(View):
     def get(self, request):
         # trivia = Trivia.objects.filter(user=request.user)

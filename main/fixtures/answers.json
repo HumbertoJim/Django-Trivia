@@ -12,7 +12,7 @@
         "model": "trivia.Answer",
         "pk": 2,
         "fields": {
-            "sentence": "Juan Guaido",
+            "sentence": "Linus Torvalds",
             "is_correct": false,
             "question": 1
         }
@@ -21,7 +21,7 @@
         "model": "trivia.Answer",
         "pk": 3,
         "fields": {
-            "sentence": "Anders Hejlsberg",
+            "sentence": "Tim Berners-Lee",
             "is_correct": false,
             "question": 1
         }
@@ -30,9 +30,333 @@
         "model": "trivia.Answer",
         "pk": 4,
         "fields": {
-            "sentence": "Dennis Ritchie",
+            "sentence": "Donald Knuth",
             "is_correct": false,
             "question": 1
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 5,
+        "fields": {
+            "sentence": "1991",
+            "is_correct": true,
+            "question": 2
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 6,
+        "fields": {
+            "sentence": "1989",
+            "is_correct": false,
+            "question": 2
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 7,
+        "fields": {
+            "sentence": "1995",
+            "is_correct": false,
+            "question": 2
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 8,
+        "fields": {
+            "sentence": "2000",
+            "is_correct": false,
+            "question": 2
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 9,
+        "fields": {
+            "sentence": "To display output on the screen",
+            "is_correct": true,
+            "question": 3
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 10,
+        "fields": {
+            "sentence": "To read input from the user",
+            "is_correct": false,
+            "question": 3
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 11,
+        "fields": {
+            "sentence": "To perform mathematical calculations",
+            "is_correct": false,
+            "question": 3
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 12,
+        "fields": {
+            "sentence": "To create a new variable",
+            "is_correct": false,
+            "question": 3
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 13,
+        "fields": {
+            "sentence": "Python Enhancement Proposal",
+            "is_correct": true,
+            "question": 4
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 14,
+        "fields": {
+            "sentence": "Python External Package",
+            "is_correct": false,
+            "question": 4
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 15,
+        "fields": {
+            "sentence": "Python Engineering Practice",
+            "is_correct": false,
+            "question": 4
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 16,
+        "fields": {
+            "sentence": "Python Error Protocol",
+            "is_correct": false,
+            "question": 4
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 17,
+        "fields": {
+            "sentence": "The main difference is that lists are mutable and tuples are immutable",
+            "is_correct": true,
+            "question": 5
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 18,
+        "fields": {
+            "sentence": "Tuples can contain only integers while lists can contain any data type",
+            "is_correct": false,
+            "question": 5
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 19,
+        "fields": {
+            "sentence": "Lists are indexed starting from 1 while tuples are indexed starting from 0",
+            "is_correct": false,
+            "question": 5
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 20,
+        "fields": {
+            "sentence": "There is no difference, they can be used interchangeably",
+            "is_correct": false,
+            "question": 5
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 21,
+        "fields": {
+            "sentence": "OOP is a programming paradigm based on the concept of objects, which can contain data and code",
+            "is_correct": true,
+            "question": 6
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 22,
+        "fields": {
+            "sentence": "OOP is a programming language developed by Microsoft",
+            "is_correct": false,
+            "question": 6
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 23,
+        "fields": {
+            "sentence": "OOP is a library in Python used for file I/O operations",
+            "is_correct": false,
+            "question": 6
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 24,
+        "fields": {
+            "sentence": "OOP is a Python module for creating graphical user interfaces (GUIs)",
+            "is_correct": false,
+            "question": 6
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 25,
+        "fields": {
+            "sentence": "'==' compares the values of two objects, while 'is' compares their memory addresses",
+            "is_correct": true,
+            "question": 7
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 26,
+        "fields": {
+            "sentence": "'==' compares the memory addresses of two objects, while 'is' compares their values",
+            "is_correct": false,
+            "question": 7
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 27,
+        "fields": {
+            "sentence": "'==' is used for assignment, while 'is' is used for comparison",
+            "is_correct": false,
+            "question": 7
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 28,
+        "fields": {
+            "sentence": "'==' is used for comparison of strings, while 'is' is used for comparison of numbers",
+            "is_correct": false,
+            "question": 7
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 29,
+        "fields": {
+            "sentence": "A dictionary is a collection of key-value pairs, declared using curly braces {}",
+            "is_correct": true,
+            "question": 8
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 30,
+        "fields": {
+            "sentence": "A dictionary is a sorted collection of elements, declared using square brackets []",
+            "is_correct": false,
+            "question": 8
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 31,
+        "fields": {
+            "sentence": "A dictionary is an ordered collection of elements, declared using parentheses ()",
+            "is_correct": false,
+            "question": 8
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 32,
+        "fields": {
+            "sentence": "A dictionary is a collection of elements, declared using the keyword 'dict'",
+            "is_correct": false,
+            "question": 8
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 33,
+        "fields": {
+            "sentence": "A 'for' loop is used to iterate over a sequence (such as a list, tuple, or string) in Python",
+            "is_correct": true,
+            "question": 9
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 34,
+        "fields": {
+            "sentence": "A 'for' loop is used to define a function in Python",
+            "is_correct": false,
+            "question": 9
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 35,
+        "fields": {
+            "sentence": "A 'for' loop is used to perform arithmetic operations in Python",
+            "is_correct": false,
+            "question": 9
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 36,
+        "fields": {
+            "sentence": "A 'for' loop is used to declare variables in Python",
+            "is_correct": false,
+            "question": 9
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 37,
+        "fields": {
+            "sentence": "The 'len()' function returns the length (number of elements) of a sequence",
+            "is_correct": true,
+            "question": 10
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 38,
+        "fields": {
+            "sentence": "The 'len()' function converts a string to lowercase",
+            "is_correct": false,
+            "question": 10
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 39,
+        "fields": {
+            "sentence": "The 'len()' function returns the largest element in a sequence",
+            "is_correct": false,
+            "question": 10
+        }
+    },
+    {
+        "model": "trivia.Answer",
+        "pk": 40,
+        "fields": {
+            "sentence": "The 'len()' function returns the smallest element in a sequence",
+            "is_correct": false,
+            "question": 10
         }
     }
 ]

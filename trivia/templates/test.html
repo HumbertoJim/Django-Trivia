@@ -3,12 +3,18 @@
 {% block title%}Trivia{%endblock%}
 
 {% block content %}
+<div class="mytest">
+    <p class="myp">MyTest</p>
+</div>
 <div class="container">
     <div class="col-10 col-md-8 col-lg-6 mx-auto">
-        {{sentence}}
+        {{question.sentence}}
+        <hr>
         <form action="/trivia/{{trivia_id}}" method="post">
             {% csrf_token %}
-            {{ form }}
+            
+            {{form}}
+
             <div class="d-flex justify-content-center align-items-center">
                 <button class="btn btn-primary btn-lg" type="submit">Confirm</button>
             </div>

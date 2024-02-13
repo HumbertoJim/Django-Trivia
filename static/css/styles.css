@@ -1,46 +1,26 @@
-  .answer {
-    display: block;
-    margin-bottom: 15px;
-    padding: 15px;
-    border: 3px solid;
-    border-top-width: 2px;
-    border-bottom-width: 4px;
-    border-color: #cccccc;
-    border-radius: 5px;
-  }
-  
-  .answer:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .answer input[type="checkbox"] + label {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: #ccc; /* Cambiar el color del cuadrado */
-    color: #555; /* Cambiar el color del texto */
-    font-size: 16px; /* Cambiar el tamaño de la fuente */
-    line-height: 20px; /* Alinear verticalmente el texto */
-  }
+div.answers {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 
-  .answer input[type="checkbox"]:checked + label {
-    background-color: lightblue; /* Color de fondo cuando está seleccionado */
-  }
-  
-  .answer input[type="radio"] + label {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ccc; /* Cambiar el color del círculo */
-    border-radius: 50%; /* Hacer el borde redondo para que parezca un círculo */
-    color: #eb0000; /* Cambiar el color del texto */
-    font-size: 16px; /* Cambiar el tamaño de la fuente */
-    line-height: 20px; /* Alinear verticalmente el texto */
-  }
+.answers div label {
+  display: block;
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 3px solid;
+  border-top-width: 2px;
+  border-bottom-width: 4px;
+  border-color: #cccccc;
+  border-radius: 5px;
+}
 
-  .answer input[type="radio"]:checked + label {
-    border-color: rgb(255, 217, 0); /* Color del borde cuando está seleccionado */
-  }
-  
-  
-  
+.answers div label:hover {
+  background-color: #f0f0f0;
+}
+
+/*
+PENDING
+input[type="radio"]:checked.answers{
+  border-color: lightblue;
+}
+*/

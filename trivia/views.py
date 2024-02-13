@@ -7,6 +7,7 @@ from django.utils.safestring import mark_safe
 import markdown
 import random
 
+from trivia.forms import TriviaForm, TextTriviaForm, CheckTriviaForm, RadioTriviaForm
 from main.wrappers import authentication_required
 
 # Create your views here.
@@ -40,33 +41,42 @@ class TriviaView(View):
         
         if trivia_question is None:
             return redirect('/home')
-        
         sentence = markdown.markdown(trivia_question.question.sentence)
+
+        form = self._get_question_form(trivia_id)
         context = {
-            'trivia_question_id': trivia_question.id,
-            'question': {
-                'sentence': mark_safe(sentence),
-                'answers': Answer.objects.filter(question=trivia_question.question).values('id', 'sentence')
-            }
+            'trivia_id': trivia_id,
+            'sentence': mark_safe(sentence),
+            'form': form
         }
         return render(request, 'trivia.html', context)
-            
+    
     
     @authentication_required
     def post(self, request, trivia_id):
-        trivia = Trivia.objects.get(id=trivia_id)
-        trivia_question = TriviaQuestion.objects.filter(trivia=trivia).filter(correct_answered=None).first()
-        
-        if trivia_question is None:
-            return redirect('/home')
-        
-        print(request.POST)
-        sentence = markdown.markdown(trivia_question.question.sentence)
-        context = {
-            'trivia_question_id': trivia_question.id,
-            'question': {
-                'sentence': mark_safe(sentence),
-                'answers': Answer.objects.filter(question=trivia_question.question).values('id', 'sentence')
-            }
-        }
-        return render(request, 'trivia.html', context)
+        qform = TriviaForm(request.POST)
+        if not qform.is_valid():
+            raise TriviaQuestion.DoesNotExist()
+        form = self._get_question_form(qform.cleaned_data['question_id'], request.POST)
+        if form.is_valid():
+            answer = form.cleaned_data['answer']
+            print(answer)
+            # continue here
+        return redirect(f'/trivia/{trivia_id}')
+
+    def _get_question_form(self, question_id, data=None):
+        trivia_question = TriviaQuestion.objects.get(id=question_id)
+        answers = Answer.objects.filter(question=trivia_question.question)
+        if answers.count() == 0:
+            raise TriviaQuestion.DoesNotExist()
+        if answers.filter(is_correct=True).count() == 0:
+            raise TriviaQuestion.DoesNotExist()
+        initial = {'question_id': question_id} if data is None else None
+        if answers.count() == 1:
+            return TextTriviaForm(data=data, initial=initial)
+        else:
+            choices = [(answer.id, answer.sentence) for answer in answers]
+            if answers.filter(is_correct=True).count() == 1:
+                return RadioTriviaForm(choices=choices, data=data, initial=initial)
+            else:
+                return CheckTriviaForm(choices=choices, data=data, initial=initial)

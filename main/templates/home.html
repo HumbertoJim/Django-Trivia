@@ -8,19 +8,33 @@
         <h1>Home</h1>
         <hr>
         
-        {% if trivia %}
+        <h4>New trivia</h4>
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action" href="/trivia/topics">Select topic</a>
+        </div>
+        <br>
+
+        {% if trivia_pending %}
         <h4>Pending</h4>
         <div class="list-group">
-            <a class="list-group-item list-group-item-action" href="/trivia/{{trivia.id}}">Continue last trivia</a>
+            {% for trivia in trivia_pending %}
+            <a class="list-group-item list-group-item-action" href="/trivia/{{trivia.id}}">{{trivia.number}}.- {{trivia.name}}</a>
+            {% endfor %}
         </div>
         <br>
         {% endif %}
-        
-        <h4>New trivia</h4>
-        <div class="list-group">
 
-            <a class="list-group-item list-group-item-action" href="/trivia/topics">Select topic</a>
+        {% if trivia_finished %}
+        <h4>Finished</h4>
+        <div class="list-group">
+            {% for trivia in trivia_finished %}
+            <div class="container">
+                <a class="list-group-item list-group-item-action" href="/trivia/{{trivia.id}}">{{trivia.number}}.- {{trivia.name}}</a>
+            </div>
+            {% endfor %}
         </div>
+        <br>
+        {% endif %}
         
     </div>
 </div>

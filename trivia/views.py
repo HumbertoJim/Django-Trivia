@@ -10,6 +10,7 @@ import random
 from trivia.exceptions import QuestionError, AnswerError
 from trivia.forms import TriviaForm, TextTriviaForm, CheckTriviaForm, RadioTriviaForm
 from main.wrappers import authentication_required
+from main.tools import words
 
 # Create your views here.
 class TopicsView(View):
@@ -22,16 +23,25 @@ class TopicsView(View):
 class TopicTriviaView(View):
     @authentication_required
     def get(self, request, topic_id=None):
-        questions = Question.objects.all() if topic_id == None else Question.objects.filter(topic__id=topic_id)
-        ids = [q['id'] for q in questions.values('id')]
-        ids = random.sample(ids, k = 10 if len(ids) > 10 else len(ids))
-        trivia = Trivia(user=request.user)
-        trivia.save()
-        for id in ids:
-            question = Question.objects.get(id=id)
-            trivia_question = TriviaQuestion(trivia=trivia, question=question)
-            trivia_question.save()
-        return redirect(f'/trivia/{trivia.id}')
+        try:
+            questions = Question.objects.all() if topic_id == None else Question.objects.filter(topic__id=topic_id)
+            ids = [q['id'] for q in questions.values('id')]
+            ids = random.sample(ids, k = 10 if len(ids) > 10 else len(ids))
+            trivia_name = "{0} {1} {2}".format(
+                random.choice(words['Adjectives']),
+                random.choice(words['MultidisciplinarySynonyms']) if topic_id == None else Topic.objects.get(id=topic_id).name,
+                random.choice(words['TriviaSynonyms'])
+            )
+            trivia = Trivia(name=trivia_name, user=request.user)
+            trivia.save()
+            for id in ids:
+                question = Question.objects.get(id=id)
+                trivia_question = TriviaQuestion(trivia=trivia, question=question)
+                trivia_question.save()
+            return redirect(f'/trivia/{trivia.id}')
+        except Trivia.DoesNotExist:
+            messages.error(request, 'Invalid Trivia')
+            return redirect('/home')
     
 class TriviaView(View):
     @authentication_required

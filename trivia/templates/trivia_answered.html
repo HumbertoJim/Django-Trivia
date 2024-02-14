@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title%}Trivia{%endblock%}
+
+{% block content %}
+<div class="container">
+    <div class="col-10 col-md-8 col-lg-6 mx-auto">
+        {{sentence}}
+        <div>
+            {{ form }}
+            <div class="d-flex justify-content-center align-items-center">
+                <a href="/trivia/{{trivia_id}}" class="btn btn-primary btn-lg">Next</a>
+            </div>
+        </form>
+    </div>
+</div>
+{%endblock%}

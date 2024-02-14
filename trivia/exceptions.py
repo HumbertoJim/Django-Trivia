@@ -1,3 +1,7 @@
+class TriviaError(BaseException):
+    def __init__(self, message='') -> None:
+        super().__init__(message)
+
 class QuestionError(BaseException):
     def __init__(self, message='') -> None:
         super().__init__(message)

@@ -7,7 +7,7 @@ from django.utils.safestring import mark_safe
 import markdown
 import random
 
-from trivia.exceptions import QuestionError, AnswerError
+from trivia.exceptions import QuestionError, AnswerError, TriviaError
 from trivia.forms import TriviaForm, TextTriviaForm, CheckTriviaForm, RadioTriviaForm
 from main.wrappers import authentication_required
 from main.tools import words
@@ -48,8 +48,10 @@ class TriviaView(View):
     def get(self, request, trivia_id):
         try:
             trivia = Trivia.objects.get(id=trivia_id)
+            if trivia.user != request.user:
+                raise TriviaError()
+                
             trivia_question = TriviaQuestion.objects.filter(trivia=trivia).filter(correct_answered=None).first()
-            
             if trivia_question is None:
                 messages.warning(request, 'Finished')
                 results = TriviaQuestion.objects.filter(trivia=trivia)
@@ -69,6 +71,9 @@ class TriviaView(View):
         except Trivia.DoesNotExist:
             messages.error(request, 'Invalid Trivia')
             return redirect('/home')
+        except TriviaError:
+            messages.error(request, 'Trivia Error')
+            return redirect('/home')
         except TriviaQuestion.DoesNotExist:
             messages.error(request, 'Invalid Question')
             return redirect('/home')
@@ -80,10 +85,19 @@ class TriviaView(View):
     @authentication_required
     def post(self, request, trivia_id):
         try:
+            trivia = Trivia.objects.get(id=trivia_id)
+            if trivia.user != request.user:
+                raise TriviaError()
+            
             qform = TriviaForm(request.POST)
             if not qform.is_valid():
                 raise QuestionError()
+            
             trivia_question = TriviaQuestion.objects.get(id=qform.cleaned_data['question_id'])
+
+            if trivia_question.trivia != trivia:
+                raise TriviaError()
+            
             question = trivia_question.question
             form = self._get_question_form(trivia_question.id, request.POST)
             if form.is_valid():
@@ -127,6 +141,9 @@ class TriviaView(View):
             return render(request, template, context)
         except Trivia.DoesNotExist:
             messages.error(request, 'Invalid Trivia')
+            return redirect('/home')
+        except TriviaError:
+            messages.error(request, 'Trivia Error')
             return redirect('/home')
         except TriviaQuestion.DoesNotExist:
             messages.error(request, 'Invalid Question')

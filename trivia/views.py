@@ -56,6 +56,7 @@ class TriviaView(View):
                 messages.warning(request, 'Finished')
                 results = TriviaQuestion.objects.filter(trivia=trivia)
                 context = {
+                    'trivia_name': trivia.name,
                     'correct': results.filter(correct_answered=True).count(),
                     'total': results.count()
                 }
@@ -64,6 +65,7 @@ class TriviaView(View):
             form = self._get_question_form(trivia_question.id)
             context = {
                 'trivia_id': trivia_id,
+                'trivia_name': trivia.name,
                 'sentence': mark_safe(sentence),
                 'form': form
             }
@@ -135,6 +137,7 @@ class TriviaView(View):
             sentence = markdown.markdown(question.sentence)
             context = {
                 'trivia_id': trivia_id,
+                'trivia_name': trivia.name,
                 'sentence': mark_safe(sentence),
                 'form': form
             }

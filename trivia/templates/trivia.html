@@ -5,6 +5,8 @@
 {% block content %}
 <div class="container">
     <div class="col-10 col-md-8 col-lg-6 mx-auto">
+        <h2>{{trivia_name}}</h2>
+        <hr>
         {{sentence}}
         <form action="/trivia/{{trivia_id}}" method="post">
             {% csrf_token %}
